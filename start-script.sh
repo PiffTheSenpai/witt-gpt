@@ -3,3 +3,6 @@ cd $SCRATHDIR
 git clone witt-train
 cd witt-train
 singularity shell --nv /cvmfs/singularity.metacentrum.cz/NGC/PyTorch\:21.05-py3.SIF 
+pip install transformers huggingface_hub
+python download.py
+HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 train.py 
