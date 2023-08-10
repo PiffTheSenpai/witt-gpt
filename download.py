@@ -2,9 +2,9 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-neox-20b")
-
 tokenizer.save_pretrained("/storage/brno2/home/tvrzj/EleutherAI/gpt-neox-20b")
+
+model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-neox-20b")
 model.save_pretrained("/storage/brno2/home/tvrzj/EleutherAI/gpt-neox-20b")
 
 ''' # nakonec ne, zjistil jsem ze je to jen jina metoda
