@@ -1,11 +1,13 @@
 # download modelu a ulozeni do lokalu
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
-tokenizer.save_pretrained("/storage/brno2/home/tvrzj/EleutherAI/gpt-neox-20b")
+path = "EleutherAI/gpt-neox-20b"
 
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-neox-20b")
-model.save_pretrained("/storage/brno2/home/tvrzj/EleutherAI/gpt-neox-20b")
+tokenizer = AutoTokenizer.from_pretrained(path)
+tokenizer.save_pretrained(path)
+
+model = AutoModelForCausalLM.from_pretrained(path)
+model.save_pretrained(path)
 
 ''' # nakonec ne, zjistil jsem ze je to jen jina metoda
 # stazeni configu

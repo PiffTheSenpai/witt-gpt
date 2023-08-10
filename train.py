@@ -1,7 +1,9 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-tokenizer = AutoTokenizer.from_pretrained("/storage/brno2/home/tvrzj/EleutherAI/gpt-neox-20b")
-model = AutoModel.from_pretrained("/storage/brno2/home/tvrzj/EleutherAI/gpt-neox-20b")
+path = "EleutherAI/gpt-neox-20b"
+
+tokenizer = AutoTokenizer.from_pretrained(path)
+model = AutoModel.from_pretrained(path)
 
 open ("./finetuning-data/phil-inv/Final_z_7-1-bez_cislovani.txt")
 
