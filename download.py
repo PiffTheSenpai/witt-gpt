@@ -4,10 +4,13 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 path = "EleutherAI/gpt-neox-20b"
 
 tokenizer = AutoTokenizer.from_pretrained(path)
-tokenizer.save_pretrained(path)
-
 model = AutoModelForCausalLM.from_pretrained(path)
+
+tokenizer.save_pretrained(path)
 model.save_pretrained(path)
+
+#ve vysledku predelat na download script pro muj natrenovany model
+
 
 ''' # nakonec ne, zjistil jsem ze je to jen jina metoda
 # stazeni configu
