@@ -1,12 +1,15 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig, TrainingArguments
 
 path = "EleutherAI/gpt-neo-125m"
+#path = "EleutherAI/gpt-neox-20b"
 
 config = AutoConfig.from_pretrained(path)
 model = AutoModelForCausalLM.from_pretrained(path).half().cuda()
 tokenizer = AutoTokenizer.from_pretrained(path)
 
- = open("./finetuning-data/phil-inv/Final_z_7-1-bez_cislovani.txt", "r")
+a = open("./finetuning-data/phil-inv/Final_z_7-1-bez_cislovani.txt", "r")
+
+data = tokenizer(a, return_tensors="pt").data #CEKNI TO DUDE, NEJSEM SI JISTEJ JESTLI TOHLE JE WAY HOW TO TOKENIZOVAT
 
 training_args = TrainingArguments(
     output_dir="my_training",
@@ -22,6 +25,8 @@ training_args = TrainingArguments(
     lr_scheduler_type="cosine", 
     warmup_ratio=0.05, 
     report_to="tensorboard",
+    to_gpu=true,
+    line_by_line=True
 )
 
 trainer(
@@ -32,5 +37,5 @@ trainer(
 )
 
 trainer.train()
-# !!zajimava moznost, cte trenovaci data radek po radku: line_by_line=True
-# stejne tak tohle to_gpu=true
+
+print("I'm done, mate")

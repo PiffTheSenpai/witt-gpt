@@ -1,13 +1,14 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
 
 path = "EleutherAI/gpt-neo-125m"
+#path = "EleutherAI/gpt-neox-20b"
 
 config = AutoConfig.from_pretrained(path)
 model = AutoModelForCausalLM.from_pretrained(path)
 tokenizer = AutoTokenizer.from_pretrained(path)
 
 prompt = open("./prompt.txt").readlines()
-#prompt = "Is it possible to meaningfully describe the logical form of language?"
+#prompt = ["What is the gist of Wittgenstein's late philosophy"]
 
 
 for line in prompt:
@@ -19,7 +20,7 @@ for line in prompt:
         do_sample=True,
         #num_beams=4,
         temperature=0.9, # default was 0.9
-        max_new_tokens=300,
+        max_new_tokens=200,
     )
 
     gen_text = tokenizer.batch_decode(gen_tokens)[0]
