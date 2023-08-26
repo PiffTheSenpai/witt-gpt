@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig, TrainingArguments
 
-path = "EleutherAI/gpt-neo-125m"
-#path = "EleutherAI/gpt-neox-20b"
+#path = "EleutherAI/gpt-neo-125m"
+path = "EleutherAI/gpt-neox-20b"
 
 config = AutoConfig.from_pretrained(path)
 model = AutoModelForCausalLM.from_pretrained(path).half().cuda()
@@ -16,7 +16,8 @@ training_args = TrainingArguments(
     per_device_train_batch_size=1,
     gradient_accumulation_steps=4,
     num_train_epochs=1,
-    learning_rate=2e-4, 
+    learning_rate=0.97e-5, #zjisteno z paperu gpt-neox
+    weight_decay=0.01, #zjisteno z paperu gpt-neox
     fp16=True, 
     save_total_limit=3,
     logging_steps=1,

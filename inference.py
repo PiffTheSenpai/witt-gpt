@@ -1,14 +1,14 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
 
-path = "EleutherAI/gpt-neo-125m"
-#path = "EleutherAI/gpt-neox-20b"
+#path = "EleutherAI/gpt-neo-125m"
+path = "EleutherAI/gpt-neox-20b"
 
 config = AutoConfig.from_pretrained(path)
 model = AutoModelForCausalLM.from_pretrained(path)
 tokenizer = AutoTokenizer.from_pretrained(path)
 
-prompt = open("./prompt.txt").readlines()
-#prompt = ["What is the gist of Wittgenstein's late philosophy"]
+#prompt = open("./prompt.txt").readlines()
+prompt = ["What is the gist of Wittgenstein's late philosophy?"]
 
 
 for line in prompt:
