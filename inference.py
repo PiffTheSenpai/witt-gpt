@@ -1,10 +1,10 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig, GPTNeoXForCausalLM
 
 #path = "EleutherAI/gpt-neo-125m"
 path = "EleutherAI/gpt-neox-20b"
 
 config = AutoConfig.from_pretrained(path)
-model = AutoModelForCausalLM.from_pretrained(path)
+model = AutoModelForCausalLM.from_pretrained(path).half().cuda()
 tokenizer = AutoTokenizer.from_pretrained(path)
 
 #prompt = open("./prompt.txt").readlines()
