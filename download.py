@@ -6,8 +6,8 @@ path = "EleutherAI/gpt-neox-20b"
 tokenizer = AutoTokenizer.from_pretrained(path)
 model = AutoModelForCausalLM.from_pretrained(path)
 
-tokenizer.save_pretrained(path)
-model.save_pretrained(path)
+tokenizer.save_pretrained("./EleutherAI/gpt-neox-20b")
+model.save_pretrained("./EleutherAI/gpt-neox-20b")
 
 #ve vysledku predelat na download script pro muj natrenovany model
 
